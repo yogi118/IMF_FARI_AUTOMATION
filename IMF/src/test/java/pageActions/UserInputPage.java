@@ -12,11 +12,11 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import applicaionProperties.FirstLevelUserInuptFields;
+import applicaionProperties.SecondLevelUserInuptFields;
+import applicaionProperties.ThirdLevelUserInuptFields;
 import commonUtils.CUtil;
 import datatableDTOs.APIResponse;
-import enums.FirstUserInuptFields;
-import enums.SecondUserInuptFields;
-import enums.ThirdUserInuptFields;
 import io.cucumber.datatable.DataTable;
 import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
@@ -30,8 +30,8 @@ public class UserInputPage {
 
 	public List<String> verifyFirstLevelInputPresent() {
 		List<String> notDisplayedLabels = new LinkedList<String>();
-		FirstUserInuptFields[] firstPageLabels = FirstUserInuptFields.values();
-		for (FirstUserInuptFields firstUserInuptField : firstPageLabels) {
+		FirstLevelUserInuptFields[] firstPageLabels = FirstLevelUserInuptFields.values();
+		for (FirstLevelUserInuptFields firstUserInuptField : firstPageLabels) {
 			boolean isLabelDisplayed = isFirstPageInputFieldDisplayed(firstUserInuptField);
 			if (!isLabelDisplayed) {
 				notDisplayedLabels.add(firstUserInuptField.inputFieldName());
@@ -40,7 +40,7 @@ public class UserInputPage {
 		return notDisplayedLabels;
 	}
 
-	private boolean isFirstPageInputFieldDisplayed(FirstUserInuptFields inputField) {
+	private boolean isFirstPageInputFieldDisplayed(FirstLevelUserInuptFields inputField) {
 		boolean isDisplayed = false;
 		switch (inputField) {
 		case REGIMENAME:
@@ -63,8 +63,8 @@ public class UserInputPage {
 
 	public List<String> verifySecondLevelInputPresent() {
 		List<String> notDisplayedLabels = new LinkedList<String>();
-		SecondUserInuptFields[] secondUserInuptFields = SecondUserInuptFields.values();
-		for (SecondUserInuptFields secondUserInuptField : secondUserInuptFields) {
+		SecondLevelUserInuptFields[] secondUserInuptFields = SecondLevelUserInuptFields.values();
+		for (SecondLevelUserInuptFields secondUserInuptField : secondUserInuptFields) {
 			boolean isLabelDisplayed = isSecondPageInputFieldDisplayed(secondUserInuptField);
 			if (!isLabelDisplayed) {
 				notDisplayedLabels.add(secondUserInuptField.inputFieldName());
@@ -73,7 +73,7 @@ public class UserInputPage {
 		return notDisplayedLabels;
 	}
 
-	private boolean isSecondPageInputFieldDisplayed(SecondUserInuptFields inputField) {
+	private boolean isSecondPageInputFieldDisplayed(SecondLevelUserInuptFields inputField) {
 		boolean isDisplayed = false;
 		switch (inputField) {
 		case COMMENCEMENTOFDECOMISSIONINGPROVISION:
@@ -91,8 +91,8 @@ public class UserInputPage {
 
 	public List<String> verifyThirdLevelInputPresent() {
 		List<String> notDisplayedLabels = new LinkedList<String>();
-		ThirdUserInuptFields[] thirdUserInuptFields = ThirdUserInuptFields.values();
-		for (ThirdUserInuptFields thirdUserInuptField : thirdUserInuptFields) {
+		ThirdLevelUserInuptFields[] thirdUserInuptFields = ThirdLevelUserInuptFields.values();
+		for (ThirdLevelUserInuptFields thirdUserInuptField : thirdUserInuptFields) {
 			boolean isLabelDisplayed = isThirdPageInputFieldDisplayed(thirdUserInuptField);
 			if (!isLabelDisplayed) {
 				notDisplayedLabels.add(thirdUserInuptField.inputFieldName());
@@ -101,7 +101,7 @@ public class UserInputPage {
 		return notDisplayedLabels;
 	}
 
-	private boolean isThirdPageInputFieldDisplayed(ThirdUserInuptFields inputField) {
+	private boolean isThirdPageInputFieldDisplayed(ThirdLevelUserInuptFields inputField) {
 		boolean isDisplayed = false;
 		switch (inputField) {
 		case VALUE:

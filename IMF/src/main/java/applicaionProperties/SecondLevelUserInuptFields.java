@@ -1,6 +1,6 @@
-package enums;
+package applicaionProperties;
 
-public enum SecondUserInuptFields {
+public enum SecondLevelUserInuptFields {
 
 	DECOMISSIONINGPROVISION("Decommissioning Provision"),
 	COMMENCEMENTOFDECOMISSIONINGPROVISION("Commencement of Decommissioning Provision"),
@@ -9,7 +9,7 @@ public enum SecondUserInuptFields {
 
 	private String inputField;
 
-	private SecondUserInuptFields(String inputField) {
+	private SecondLevelUserInuptFields(String inputField) {
 		this.inputField = inputField;
 	}
 

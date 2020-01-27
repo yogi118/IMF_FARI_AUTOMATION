@@ -1,13 +1,13 @@
-package enums;
+package applicaionProperties;
 
-public enum FirstUserInuptFields {
+public enum FirstLevelUserInuptFields {
 
 	REGIMENAME("Regime Name"), PRODUCTIONBONUS("Production bonus (Start of Production)"), ROYALTYRATE("Royalty Rate"),
 	ROYALTYBASE("Royalty Base");
 	
 	private String inputField;
 
-	private FirstUserInuptFields(String inputField) {
+	private FirstLevelUserInuptFields(String inputField) {
 		this.inputField = inputField;
 	}
 
