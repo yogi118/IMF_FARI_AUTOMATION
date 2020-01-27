@@ -36,7 +36,7 @@ public class FARIApiSteps {
 	
 	@Then("I should get valid response")
 	public void i_should_get_valid_response() {
-		fariApi.validResponse();
+		fariApi.verifyResponse();
 	}
 	
 	@Then("Response body should contain expected values")

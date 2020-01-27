@@ -1,8 +1,8 @@
 #Author: yogendra.sahu@lntinfotech.com
 @fari @api
-Feature: Predict oil production as per user inputs
-  As an end user, I can view all the user input parameters on the user input screen
-  so that I can provide user inputs to generate visualization graphs and predict the oil production
+Feature: Verify the FARI API response
+  As the FARI UI frontend user, I can access the APIs  
+  so that I can predict the forecast values and  generate visualization graphs and predict the oil production
 
   @arima
   Scenario Outline: As the FARI UI frontend user, I want to consume the ARIMA forecast API response and validate the forecast values for given time period
@@ -24,7 +24,7 @@ Feature: Predict oil production as per user inputs
     Then I should get valid response
     And Response body should contain expected values
       | algorithm | transid | forecast                                                                                                                                                                                                                                                                                                |
-      | lstm_4    |     123 | {2020-01-01 00:00:00=10.0, 2021-01-01 00:00:00=15.53, 2022-01-01 00:00:00=13.54, 2023-01-01 00:00:00=14.09, 2024-01-01 00:00:00=15.03, 2025-01-01 00:00:00=14.96, 2026-01-01 00:00:00=15.28, 2027-01-01 00:00:00=15.56, 2028-01-01 00:00:00=15.69, 2029-01-01 00:00:00=15.86, 2030-01-01 00:00:00=16.0} |
+      | lstm_3    |     123 | {2020-01-01 00:00:00=10.0, 2021-01-01 00:00:00=15.53, 2022-01-01 00:00:00=13.54, 2023-01-01 00:00:00=14.09, 2024-01-01 00:00:00=15.03, 2025-01-01 00:00:00=14.96, 2026-01-01 00:00:00=15.28, 2027-01-01 00:00:00=15.56, 2028-01-01 00:00:00=15.69, 2029-01-01 00:00:00=15.86, 2030-01-01 00:00:00=16.0} |
 
     Examples: 
       | base_uri                                                                 | base_path                   | trans_id | from_date  | to_date    |
