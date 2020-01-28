@@ -36,7 +36,7 @@ Feature: Predict oil production as per user inputs
       | Royalty Rate                           |      25 |
       | Royalty Base                           | Gross   |
     And I enter values in "second" input field
-      | Decommissioning provision                                    | Yes |
+      | Decommissioning Provision                                    | Yes |
       | Commencement of Decommissioning Provision                    |  12 |
       | Cost Recovery Ceiling                                        |   6 |
       | Development and replacement capital cost depreciation period |  10 |

@@ -115,7 +115,7 @@ public class UserInputPage {
 	
 	public void selectRegimeName(String value) {
 		CUtil.click(By.xpath(userInputPageElements.regimeNameDropDown));
-		CUtil.pause(5000);
+		CUtil.pause(WaitTimes.MEDIUM_WAIT_TIME);
 		CUtil.click(By.xpath(String.format(userInputPageElements.regimeNameOption, value)));
 	}
 	
@@ -183,17 +183,17 @@ public class UserInputPage {
 	}
 	
 	public void chooseDecomProvisoning(String value) {
-		String test = CUtil.getAttribute(By.id(userInputPageElements.decomProvisionButton), "class");
-		if(value.equals("Yes") && !test.contains("checked")) {
-			CUtil.click(By.id(userInputPageElements.decommissioningProvison));
+		String className = CUtil.getAttribute(By.id(userInputPageElements.decomProvisionButton), "class");
+		if(value.equals("Yes") && !className.contains("checked")) {
+			CUtil.click(By.cssSelector(userInputPageElements.decomProvisionToggleButton));
 			CUtil.pause(WaitTimes.SMALL_WAIT_TIME);
 		}
 	}
 	
 	public void chooseInvestmentUplift(String value) {
-		String test = CUtil.getAttribute(By.id(userInputPageElements.investmentUpliftButton), "class");
-		if(value.equals("Yes") && !test.contains("checked")) {
-			CUtil.click(By.id(userInputPageElements.investmentUpliftButton));
+		String className = CUtil.getAttribute(By.id(userInputPageElements.investmentUpliftButton), "class");
+		if(value.equals("Yes") && !className.contains("checked")) {
+			CUtil.click(By.cssSelector(userInputPageElements.investmentUpliftToggleButton));
 			CUtil.pause(WaitTimes.SMALL_WAIT_TIME);
 		}
 	}
@@ -201,12 +201,5 @@ public class UserInputPage {
 	public void clickResetButton() {
 		CUtil.click(By.xpath(userInputPageElements.resetButton));
 		CUtil.pause(WaitTimes.LARGE_WAIT_TIME);
-	}
-	
-	public void getValue()
-	{
-		String test = CUtil.getText(By.xpath(String.format(userInputPageElements.userInputBox, "Production bonus (Start of Production)")));
-		System.out.println("********************************************* ");
-		System.out.println(test);
 	}
 }
