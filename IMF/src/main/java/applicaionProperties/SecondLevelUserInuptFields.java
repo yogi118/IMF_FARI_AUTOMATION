@@ -2,10 +2,10 @@ package applicaionProperties;
 
 public enum SecondLevelUserInuptFields {
 
-	DECOMISSIONINGPROVISION("Decommissioning Provision"),
-	COMMENCEMENTOFDECOMISSIONINGPROVISION("Commencement of Decommissioning Provision"),
-	COSTRECOVERYCEILING("Cost Recovery Ceiling"),
-	DEPRECIATIONPERIOD("Development and replacement capital cost depreciation period");
+	DECOMISSIONING_PROVISION("Decommissioning Provision"),
+	COMMENCEMENT_OF_DECOMISSIONING_PROVISION("Commencement of Decommissioning Provision"),
+	COST_RECOVERY_CEILING("Cost Recovery Ceiling"),
+	DEPRECIATION_PERIOD("Development and replacement capital cost depreciation period");
 
 	private String inputField;
 

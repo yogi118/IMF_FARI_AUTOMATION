@@ -2,8 +2,8 @@ package applicaionProperties;
 
 public enum ThirdLevelUserInuptFields {
 
-	INVESTMENTUPLIFT("Investment Uplift"), VALUE("Value"), UPLIFTLIMIT("Uplift Limit"), FROMYEAR("From Year"),
-	TOYEAR("To Year"), TYPESOFALGORITHM("Type of Algorithm");
+	INVESTMENT_UPLIFT("Investment Uplift"), VALUE("Value"), UPLIFT_LIMIT("Uplift Limit"), FROM_YEAR("From Year"),
+	TO_YEAR("To Year"), TYPES_OF_ALGORITHM("Type of Algorithm");
 
 	private String inputField;
 

@@ -36,13 +36,13 @@ public class UserInputPage {
 	private boolean isFirstPageInputFieldDisplayed(FirstLevelUserInuptFields inputField) {
 		boolean isDisplayed = false;
 		switch (inputField) {
-		case REGIMENAME:
-		case PRODUCTIONBONUS:
-		case ROYALTYRATE:
+		case REGIME_NAME:
+		case PRODUCTION_BONUS:
+		case ROYALTY_RATE:
 			isDisplayed = CUtil
 					.isDisplayed(By.xpath(String.format(userInputPageElements.userInput, inputField.inputFieldName())));
 			break;
-		case ROYALTYBASE:
+		case ROYALTY_BASE:
 			isDisplayed = CUtil.isDisplayed(
 					By.xpath(String.format(userInputPageElements.userInputMat, inputField.inputFieldName())));
 			break;
@@ -69,13 +69,13 @@ public class UserInputPage {
 	private boolean isSecondPageInputFieldDisplayed(SecondLevelUserInuptFields inputField) {
 		boolean isDisplayed = false;
 		switch (inputField) {
-		case COMMENCEMENTOFDECOMISSIONINGPROVISION:
-		case COSTRECOVERYCEILING:
-		case DEPRECIATIONPERIOD:
+		case COMMENCEMENT_OF_DECOMISSIONING_PROVISION:
+		case COST_RECOVERY_CEILING:
+		case DEPRECIATION_PERIOD:
 			isDisplayed = CUtil
 					.isDisplayed(By.xpath(String.format(userInputPageElements.userInput, inputField.inputFieldName())));
 			break;
-		case DECOMISSIONINGPROVISION:
+		case DECOMISSIONING_PROVISION:
 			isDisplayed = CUtil.isDisplayed(By.xpath(userInputPageElements.decommissioningProvison));
 			break;
 		}
@@ -98,15 +98,15 @@ public class UserInputPage {
 		boolean isDisplayed = false;
 		switch (inputField) {
 		case VALUE:
-		case UPLIFTLIMIT:
-		case FROMYEAR:
-		case TOYEAR:
+		case UPLIFT_LIMIT:
+		case FROM_YEAR:
+		case TO_YEAR:
 			isDisplayed = CUtil
 					.isDisplayed(By.xpath(String.format(userInputPageElements.userInput, inputField.inputFieldName())));
 			break;
-		case TYPESOFALGORITHM:
+		case TYPES_OF_ALGORITHM:
 			isDisplayed = CUtil.isDisplayed(By.xpath(userInputPageElements.typeOfAlgorithm));
-		case INVESTMENTUPLIFT:
+		case INVESTMENT_UPLIFT:
 			isDisplayed = CUtil.isDisplayed(By.xpath(userInputPageElements.invstmentUplift));
 			break;
 		}

@@ -2,8 +2,8 @@ package applicaionProperties;
 
 public enum FirstLevelUserInuptFields {
 
-	REGIMENAME("Regime Name"), PRODUCTIONBONUS("Production bonus (Start of Production)"), ROYALTYRATE("Royalty Rate"),
-	ROYALTYBASE("Royalty Base1");
+	REGIME_NAME("Regime Name"), PRODUCTION_BONUS("Production bonus (Start of Production)"), ROYALTY_RATE("Royalty Rate"),
+	ROYALTY_BASE("Royalty Base");
 	
 	private String inputField;
 
