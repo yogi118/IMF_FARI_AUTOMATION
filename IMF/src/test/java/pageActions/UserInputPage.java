@@ -1,14 +1,9 @@
 package pageActions;
 
-import static io.restassured.RestAssured.*;
-import static org.hamcrest.Matchers.*;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -16,10 +11,8 @@ import applicaionProperties.FirstLevelUserInuptFields;
 import applicaionProperties.SecondLevelUserInuptFields;
 import applicaionProperties.ThirdLevelUserInuptFields;
 import commonUtils.CUtil;
-import datatableDTOs.APIResponse;
+import commonUtils.WaitTimes;
 import io.cucumber.datatable.DataTable;
-import io.restassured.http.ContentType;
-import io.restassured.response.ValidatableResponse;
 import pageElements.UserInputPageElements;
 
 public class UserInputPage {
@@ -118,5 +111,102 @@ public class UserInputPage {
 			break;
 		}
 		return isDisplayed;
+	}
+	
+	public void selectRegimeName(String value) {
+		CUtil.click(By.xpath(userInputPageElements.regimeNameDropDown));
+		CUtil.pause(5000);
+		CUtil.click(By.xpath(String.format(userInputPageElements.regimeNameOption, value)));
+	}
+	
+	public void enterValueInInputBox(String inputField, String value) {
+		CUtil.type(By.xpath(String.format(userInputPageElements.userInputBox, inputField)), value);
+	}
+	
+	public void selectRoyaltyBase(String value) {
+		CUtil.click(By.xpath(String.format(userInputPageElements.royaltyBaseRadio, value)));
+	}
+	
+	public void enterUserInpuValues(String inputPage, DataTable dataTable) {
+		List<List<String>> list = dataTable.asLists();
+		for (List<String> value : list) {
+			String inputField = value.get(0);
+			String inputValue = value.get(1);
+			enterValueInInputField(inputField, inputValue);
+			CUtil.pause(WaitTimes.SMALL_WAIT_TIME);
+		}
+		if(inputPage.equals("first")) {
+			clickNextButton(1);
+			CUtil.pause(WaitTimes.SMALL_WAIT_TIME);
+		}else if(inputPage.equals("second")) {
+			clickNextButton(2);
+			CUtil.pause(WaitTimes.SMALL_WAIT_TIME);
+		}else {
+			
+		}
+	}
+	
+	public void enterValueInInputField(String inputField, String value) {
+		switch (inputField) {
+		case "Regime Name":
+			selectRegimeName(value);
+			break;
+		case "Production bonus (Start of Production)":
+		case "Royalty Rate":
+		case "Commencement of Decommissioning Provision":
+		case "Cost Recovery Ceiling":
+		case "Development and replacement capital cost depreciation period":
+		case "Value":
+		case "Uplift Limit":
+		case "From Year":
+		case "To Year":
+			enterValueInInputBox(inputField, value);
+			break;
+		case "Royalty Base":
+		case "Type of Algorithm":
+			selectRoyaltyBase( value);
+			break;
+		case "Decommissioning Provision":
+			chooseDecomProvisoning(value);
+			break;
+		case "Investment Uplift":
+			chooseInvestmentUplift(value);
+		default:
+			break;
+		}
+	}
+	
+	public void clickNextButton(int pageIndex) {
+		CUtil.click(By.xpath(String.format(userInputPageElements.nextButton, pageIndex)));
+		CUtil.waitForPageLoad();
+		CUtil.pause(WaitTimes.SMALL_WAIT_TIME);
+	}
+	
+	public void chooseDecomProvisoning(String value) {
+		String test = CUtil.getAttribute(By.id(userInputPageElements.decomProvisionButton), "class");
+		if(value.equals("Yes") && !test.contains("checked")) {
+			CUtil.click(By.id(userInputPageElements.decommissioningProvison));
+			CUtil.pause(WaitTimes.SMALL_WAIT_TIME);
+		}
+	}
+	
+	public void chooseInvestmentUplift(String value) {
+		String test = CUtil.getAttribute(By.id(userInputPageElements.investmentUpliftButton), "class");
+		if(value.equals("Yes") && !test.contains("checked")) {
+			CUtil.click(By.id(userInputPageElements.investmentUpliftButton));
+			CUtil.pause(WaitTimes.SMALL_WAIT_TIME);
+		}
+	}
+	
+	public void clickResetButton() {
+		CUtil.click(By.xpath(userInputPageElements.resetButton));
+		CUtil.pause(WaitTimes.LARGE_WAIT_TIME);
+	}
+	
+	public void getValue()
+	{
+		String test = CUtil.getText(By.xpath(String.format(userInputPageElements.userInputBox, "Production bonus (Start of Production)")));
+		System.out.println("********************************************* ");
+		System.out.println(test);
 	}
 }

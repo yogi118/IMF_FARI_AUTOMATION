@@ -511,4 +511,12 @@ public class CUtil {
 
 		return generatedString;
 	}
+	
+	public static void pause(int waitTime) {
+		try {
+			Thread.sleep(waitTime);
+		}catch(InterruptedException exception) {
+			
+		}
+	}
 }

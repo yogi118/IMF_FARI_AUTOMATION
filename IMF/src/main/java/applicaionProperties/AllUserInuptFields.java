@@ -8,7 +8,7 @@ public enum AllUserInuptFields {
 	COSTRECOVERYCEILING("Cost Recovery Ceiling"),
 	DEPRECIATIONPERIOD("Development and replacement capital cost depreciation period"),
 	INVESTMENTUPLIFT("Investment Uplift"), VALUE("Value"), UPLIFTLIMIT("Uplift Limit"), FROMYEAR("From Year"),
-	TOYEAR("To Year"), TYPESOFALGORITHM("Type of Algorithm *"), SUBMIT("Submit"), RESET("Reset"), NET("Net"), GROSS("Gross");
+	TOYEAR("To Year"), TYPESOFALGORITHM("Type of Algorithm"), SUBMIT("Submit"), RESET("Reset"), NET("Net"), GROSS("Gross");
 
 	private String inputField;
 

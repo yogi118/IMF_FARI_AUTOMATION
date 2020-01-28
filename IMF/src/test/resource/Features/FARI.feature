@@ -3,8 +3,8 @@
 Feature: Predict oil production as per user inputs
   As an end user, I can view all the user input parameters on the user input screen
   so that I can provide user inputs to generate visualization graphs and predict the oil production
-      
-  @functional @ui @wip
+
+  @functional @ui
   Scenario: As an end user, I want to interact with all the user input fields
     Given I am on IMF landing page
     When I navigate to FARI user input screen
@@ -26,25 +26,27 @@ Feature: Predict oil production as per user inputs
       | Value                                                        | ten         | some message 5   |
       | Uplift Limit                                                 | ten         | some message 6   |
 
-  @functional @ui
+  @functional @ui @wip
   Scenario: As an end user, I want to reset the user input values provided for oil production prediction
     Given I am on IMF landing page
     And I navigate to FARI user input screen
-    When I enter the input field values
-      | Regime Name                                                  | EUROPE |
-      | Production bonus (Start of Production)                       |     18 |
-      | Commencement of Decommissioning Provision                    |     12 |
-      | Royalty Rate                                                 |     25 |
-      | Royalty Base                                                 | Gross  |
-      | Decommissioning provision                                    | Yes    |
-      | Development and replacement capital cost depreciation period |     10 |
-      | Cost Recovery Ceiling                                        |      6 |
-      | Investment Uplift                                            | Yes    |
-      | Value                                                        |     10 |
-      | Uplift Limit                                                 |    2.5 |
-      | From Year                                                    |   2021 |
-      | To Year                                                      |   2030 |
-      | Type of Algorithm                                            | ARIMA  |
+    When I enter values in "first" input field
+      | Regime Name                            | Rfactor |
+      | Production bonus (Start of Production) |      18 |
+      | Royalty Rate                           |      25 |
+      | Royalty Base                           | Gross   |
+    And I enter values in "second" input field
+      | Decommissioning provision                                    | Yes |
+      | Commencement of Decommissioning Provision                    |  12 |
+      | Cost Recovery Ceiling                                        |   6 |
+      | Development and replacement capital cost depreciation period |  10 |
+    And I enter values in "third" input field
+      | Investment Uplift | Yes   |
+      | Value             |    10 |
+      | Uplift Limit      |   2.5 |
+      | From Year         |  2021 |
+      | To Year           |  2030 |
+      | Type of Algorithm | ARIMA |
     And I resets the user input values provided
     Then Input values should set to intial state
 

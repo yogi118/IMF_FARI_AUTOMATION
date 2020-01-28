@@ -164,11 +164,5 @@
 			<artifactId>xml-path</artifactId>
 			<version>${rest.assured.version}</version>
 		</dependency>
-		<!--  <dependency>
-			<groupId>org.assertj</groupId>
-			<artifactId>assertj-core</artifactId>
-			<version>3.14.0</version>
-			<scope>test</scope>
-		</dependency>  -->
 	</dependencies>
 </project>
