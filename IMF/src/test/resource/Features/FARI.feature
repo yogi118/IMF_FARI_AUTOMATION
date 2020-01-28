@@ -4,7 +4,7 @@ Feature: Predict oil production as per user inputs
   As an end user, I can view all the user input parameters on the user input screen
   so that I can provide user inputs to generate visualization graphs and predict the oil production
 
-  @functional @ui
+  @functional @ui @completed
   Scenario: As an end user, I want to interact with all the user input fields
     Given I am on IMF landing page
     When I navigate to FARI user input screen
